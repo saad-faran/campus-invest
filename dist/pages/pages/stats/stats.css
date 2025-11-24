@@ -1,0 +1,536 @@
+/* ========================================
+   VARIABLES
+   ======================================== */
+:root {
+  --primary: #2563EB;
+  --primary-hover: #1D4ED8;
+  --secondary: #7C3AED;
+  --secondary-hover: #6D28D9;
+  --success: #10B981;
+  --background: #F8FAFC;
+  --card-bg: #FFFFFF;
+  --text-dark: #1E293B;
+  --text-light: #475569;
+  --gold: #F59E0B;
+  --silver: #94A3B8;
+  --bronze: #CD7F32;
+  --border: #E2E8F0;
+  --error: #EF4444;
+}
+
+/* ========================================
+   RESET & BASE STYLES
+   ======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text-dark);
+  background-color: var(--background);
+  line-height: 1.6;
+}
+
+.stats-page {
+  min-height: 100vh;
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+.stats-hero {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  padding: 60px 20px;
+  text-align: center;
+  color: white;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stats-hero h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.stats-hero p {
+  font-size: 18px;
+  opacity: 0.95;
+}
+
+/* ========================================
+   METRICS SECTION
+   ======================================== */
+.metrics-section {
+  padding: 40px 20px;
+  background: var(--background);
+}
+
+.metrics-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.metric-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  padding: 32px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.metric-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.metric-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.metric-number {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.metric-label {
+  font-size: 14px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.metric-change {
+  font-size: 14px;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.metric-change.positive {
+  color: var(--success);
+}
+
+.metric-change.negative {
+  color: var(--error);
+}
+
+/* ========================================
+   CHARTS SECTION
+   ======================================== */
+.charts-section {
+  padding: 40px 20px;
+  background: var(--background);
+}
+
+.charts-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 24px;
+}
+
+.chart-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  padding: 32px;
+}
+
+.chart-card h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--text-dark);
+}
+
+.chart-container {
+  min-height: 300px;
+}
+
+/* Category Chart */
+.category-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  margin-bottom: 12px;
+  background: var(--background);
+  border-radius: 8px;
+  border-left: 4px solid;
+}
+
+.category-item.ai-ml { border-left-color: var(--primary); }
+.category-item.edtech { border-left-color: var(--success); }
+.category-item.fintech { border-left-color: var(--secondary); }
+.category-item.healthtech { border-left-color: var(--error); }
+.category-item.ecommerce { border-left-color: var(--gold); }
+.category-item.agritech { border-left-color: #22C55E; }
+.category-item.cleantech { border-left-color: #06B6D4; }
+.category-item.other { border-left-color: var(--silver); }
+
+.category-name {
+  font-weight: 600;
+  min-width: 120px;
+  color: var(--text-dark);
+}
+
+.category-bar {
+  flex: 1;
+  height: 32px;
+  background: var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.category-fill {
+  height: 100%;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  color: white;
+  font-weight: 600;
+  font-size: 12px;
+  transition: width 0.5s ease;
+}
+
+.category-count {
+  min-width: 60px;
+  text-align: right;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* Stage Chart */
+.stage-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  height: 300px;
+  padding: 20px 0;
+}
+
+.stage-bar-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.stage-bar {
+  width: 100%;
+  background: linear-gradient(180deg, var(--primary), var(--secondary));
+  border-radius: 8px 8px 0 0;
+  position: relative;
+  transition: height 0.5s ease;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  padding-bottom: 8px;
+}
+
+.stage-label {
+  font-size: 12px;
+  color: var(--text-light);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ========================================
+   UNIVERSITY COMPARISON
+   ======================================== */
+.university-section {
+  padding: 40px 20px;
+  background: var(--background);
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 32px;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.university-comparison {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.university-comp-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+}
+
+.university-comp-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--text-dark);
+}
+
+.comp-stat {
+  margin-bottom: 16px;
+}
+
+.comp-stat-label {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.comp-stat-bar {
+  height: 24px;
+  background: var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.comp-stat-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  transition: width 0.5s ease;
+}
+
+.comp-percentage {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--text-light);
+  text-align: right;
+}
+
+/* ========================================
+   ACTIVITY FEED
+   ======================================== */
+.activity-section {
+  padding: 40px 20px;
+  background: var(--background);
+}
+
+.activity-feed {
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s;
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-item:hover {
+  background: var(--background);
+}
+
+.activity-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.activity-text {
+  flex: 1;
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+.activity-text strong {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.activity-time {
+  font-size: 12px;
+  color: var(--text-light);
+  flex-shrink: 0;
+}
+
+/* ========================================
+   TOP PERFORMERS
+   ======================================== */
+.performers-section {
+  padding: 40px 20px;
+  background: var(--background);
+}
+
+.performers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.performer-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  padding: 32px;
+  text-align: center;
+}
+
+.performer-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.performer-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.performer-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+
+.performer-stats {
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 992px) {
+  .metrics-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .charts-container {
+    grid-template-columns: 1fr;
+  }
+
+  .university-comparison {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-hero h1 {
+    font-size: 32px;
+  }
+
+  .stats-hero p {
+    font-size: 16px;
+  }
+
+  .metrics-container {
+    grid-template-columns: 1fr;
+  }
+
+  .university-comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .performers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stage-chart {
+    flex-direction: column;
+    height: auto;
+    align-items: stretch;
+  }
+
+  .stage-bar {
+    height: 60px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-hero {
+    padding: 40px 16px;
+  }
+
+  .stats-hero h1 {
+    font-size: 28px;
+  }
+
+  .metric-card {
+    padding: 24px;
+  }
+
+  .chart-card {
+    padding: 24px;
+  }
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.metric-card,
+.chart-card,
+.university-comp-card,
+.performer-card {
+  animation: fadeIn 0.5s ease-in;
+}
+

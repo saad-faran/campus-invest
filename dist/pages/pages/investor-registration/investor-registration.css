@@ -1,0 +1,530 @@
+/* ========================================
+   VARIABLES
+   ======================================== */
+:root {
+  --primary: #2563EB;
+  --primary-hover: #1D4ED8;
+  --secondary: #7C3AED;
+  --secondary-hover: #6D28D9;
+  --success: #10B981;
+  --background: #F8FAFC;
+  --card-bg: #FFFFFF;
+  --text-dark: #1E293B;
+  --text-light: #475569;
+  --error: #EF4444;
+  --border: #E2E8F0;
+}
+
+/* ========================================
+   RESET & BASE STYLES
+   ======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text-dark);
+  background-color: var(--background);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.investor-registration-page {
+  min-height: 100vh;
+  padding: 40px 20px;
+  animation: fadeIn 0.5s ease-in;
+}
+
+/* ========================================
+   FORM WRAPPER
+   ======================================== */
+.form-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 40px 32px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   FORM HEADER
+   ======================================== */
+.form-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.form-header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.form-header p {
+  font-size: 16px;
+  color: var(--text-light);
+}
+
+/* ========================================
+   FORM SECTIONS
+   ======================================== */
+.form-section {
+  margin-bottom: 32px;
+}
+
+.section-title {
+  color: var(--text-dark);
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+}
+
+.section-title:first-child {
+  margin-top: 0;
+}
+
+/* ========================================
+   FORM GROUPS
+   ======================================== */
+.form-group {
+  margin-bottom: 24px;
+}
+
+label {
+  display: block;
+  color: var(--text-dark);
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.required {
+  color: var(--error);
+}
+
+/* ========================================
+   INPUT FIELDS
+   ======================================== */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  height: 48px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0 16px;
+  font-size: 15px;
+  transition: all 0.2s;
+  background: var(--card-bg);
+  color: var(--text-dark);
+  font-family: inherit;
+}
+
+textarea {
+  height: auto;
+  min-height: 120px;
+  padding: 12px 16px;
+  resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+input.error,
+select.error,
+textarea.error {
+  border-color: var(--error);
+}
+
+/* ========================================
+   RADIO BUTTONS
+   ======================================== */
+.radio-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 400;
+}
+
+.radio-option:hover {
+  border-color: var(--primary);
+  background-color: rgba(37, 99, 235, 0.05);
+}
+
+.radio-option input[type="radio"] {
+  width: auto;
+  height: auto;
+  margin: 0;
+  cursor: pointer;
+}
+
+.radio-option input[type="radio"]:checked + span {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.radio-option:has(input[type="radio"]:checked) {
+  border-color: var(--primary);
+  background-color: rgba(37, 99, 235, 0.1);
+}
+
+/* ========================================
+   CHECKBOXES
+   ======================================== */
+.checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 400;
+}
+
+.checkbox-option:hover {
+  border-color: var(--primary);
+  background-color: rgba(37, 99, 235, 0.05);
+}
+
+.checkbox-option input[type="checkbox"] {
+  width: auto;
+  height: auto;
+  margin: 0;
+  cursor: pointer;
+}
+
+.checkbox-option input[type="checkbox"]:checked + span {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.checkbox-option:has(input[type="checkbox"]:checked) {
+  border-color: var(--primary);
+  background-color: rgba(37, 99, 235, 0.1);
+}
+
+/* ========================================
+   CHARACTER COUNTER
+   ======================================== */
+.character-count {
+  display: block;
+  font-size: 13px;
+  color: var(--text-light);
+  text-align: right;
+  margin-top: 6px;
+}
+
+.character-count.valid {
+  color: var(--success);
+}
+
+.character-count.invalid {
+  color: var(--error);
+}
+
+/* ========================================
+   ERROR MESSAGES
+   ======================================== */
+.error-message {
+  display: block;
+  color: var(--error);
+  font-size: 13px;
+  margin-top: 4px;
+  min-height: 18px;
+}
+
+/* ========================================
+   FORM ACTIONS
+   ======================================== */
+.form-actions {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+.btn-submit {
+  width: 100%;
+  height: 48px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 24px;
+}
+
+.btn-submit:hover:not(:disabled) {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-submit:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-submit:disabled {
+  background: var(--text-light);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn-submit.loading {
+  position: relative;
+  color: transparent;
+}
+
+.btn-submit.loading::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  margin-left: -10px;
+  margin-top: -10px;
+  border: 2px solid white;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.form-links {
+  text-align: center;
+}
+
+.form-links p {
+  margin-bottom: 8px;
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+.form-links .link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.form-links .link:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+/* ========================================
+   SUCCESS MODAL
+   ======================================== */
+.success-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.modal-content {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 40px 32px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s ease-out;
+}
+
+.success-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.modal-content h2 {
+  color: var(--text-dark);
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.modal-content p {
+  color: var(--text-light);
+  font-size: 16px;
+  margin-bottom: 32px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  font-size: 15px;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-secondary {
+  background: var(--border);
+  color: var(--text-dark);
+}
+
+.btn-secondary:hover {
+  background: #CBD5E1;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 768px) {
+  .investor-registration-page {
+    padding: 20px 16px;
+  }
+
+  .form-card {
+    padding: 32px 24px;
+  }
+
+  .form-header h1 {
+    font-size: 28px;
+  }
+
+  .radio-group,
+  .checkbox-group {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .investor-registration-page {
+    padding: 16px 12px;
+  }
+
+  .form-card {
+    padding: 24px 20px;
+  }
+
+  .form-header h1 {
+    font-size: 24px;
+  }
+
+  .form-header p {
+    font-size: 14px;
+  }
+
+  .section-title {
+    font-size: 16px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea {
+    font-size: 14px;
+  }
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+

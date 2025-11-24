@@ -10,8 +10,8 @@
       "destination": "/api/$1"
     },
     {
-      "source": "/pages/pages/(.*)",
-      "destination": "/pages/pages/$1"
+      "source": "/pages/(.*)",
+      "destination": "/pages/$1"
     },
     {
       "source": "/(.*)",

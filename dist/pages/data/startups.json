@@ -1,0 +1,176 @@
+[
+  {
+    "id": "startup_1",
+    "name": "AI Tutor Pro",
+    "university": "NUST",
+    "category": "EdTech",
+    "stage": "MVP Built",
+    "description": "An AI-powered personalized learning platform for university students that adapts to individual learning styles and pace.",
+    "problem": "Students struggle with one-size-fits-all teaching methods and lack personalized guidance outside classroom hours.",
+    "solution": "Our AI-powered platform analyzes student performance and creates customized learning paths with 24/7 AI tutoring support.",
+    "fundingGoal": 50000,
+    "fundingRaised": 32000,
+    "logo": "https://via.placeholder.com/100",
+    "team": [
+      { "name": "Ahmed Khan", "role": "CEO & Founder" },
+      { "name": "Sara Ali", "role": "CTO" },
+      { "name": "Hassan Raza", "role": "Lead Developer" }
+    ]
+  },
+  {
+    "id": "startup_2",
+    "name": "HealthTrack",
+    "university": "FAST",
+    "category": "HealthTech",
+    "stage": "Idea Stage",
+    "description": "Mobile app for tracking student mental health and wellness with AI-powered mood analysis.",
+    "problem": "University students face high stress and mental health challenges but lack accessible tracking and support tools.",
+    "solution": "HealthTrack provides daily mood tracking, stress analytics, and connects students with counselors when needed.",
+    "fundingGoal": 30000,
+    "fundingRaised": 8000,
+    "logo": "https://via.placeholder.com/100",
+    "team": [
+      { "name": "Fatima Noor", "role": "Founder" },
+      { "name": "Ali Imran", "role": "Developer" }
+    ]
+  },
+  {
+    "id": "startup_3",
+    "name": "GreenCampus",
+    "university": "LUMS",
+    "category": "CleanTech",
+    "stage": "Growth Stage",
+    "description": "Sustainable waste management solution for university campuses using IoT sensors and smart recycling.",
+    "problem": "University campuses generate massive amounts of waste with inefficient collection and low recycling rates.",
+    "solution": "Smart bins with IoT sensors optimize collection routes and incentivize recycling through a reward system.",
+    "fundingGoal": 75000,
+    "fundingRaised": 68000,
+    "logo": "https://via.placeholder.com/100",
+    "team": [
+      { "name": "Zain Malik", "role": "CEO" },
+      { "name": "Ayesha Tariq", "role": "Operations Lead" },
+      { "name": "Bilal Ahmed", "role": "IoT Engineer" }
+    ]
+  },
+  {
+    "id": "startup_4",
+    "name": "StudyBuddy",
+    "university": "NUST",
+    "category": "EdTech",
+    "stage": "MVP Built",
+    "description": "Peer-to-peer tutoring marketplace connecting students for collaborative learning.",
+    "problem": "Many students excel in certain subjects but struggle in others, with limited access to affordable tutoring.",
+    "solution": "Our platform matches students who need help with peer tutors, creating a collaborative learning community.",
+    "fundingGoal": 40000,
+    "fundingRaised": 25000,
+    "logo": "https://via.placeholder.com/100",
+    "team": [
+      { "name": "Usman Shah", "role": "Founder" },
+      { "name": "Mariam Siddiqui", "role": "Product Manager" }
+    ]
+  },
+  {
+    "id": "startup_5",
+    "name": "PayEase",
+    "university": "GIKI",
+    "category": "FinTech",
+    "stage": "MVP Built",
+    "description": "Digital payment solution for campus transactions including cafeteria, bookstore, and printing services.",
+    "problem": "Students carry cash and multiple cards for various campus services, leading to inefficiency and long queues.",
+    "solution": "One unified digital wallet for all campus transactions with instant payments and reward points.",
+    "fundingGoal": 60000,
+    "fundingRaised": 45000,
+    "logo": "https://via.placeholder.com/100",
+    "team": [
+      { "name": "Hamza Ali", "role": "CEO" },
+      { "name": "Nida Khan", "role": "Financial Analyst" },
+      { "name": "Omer Farooq", "role": "Backend Developer" }
+    ]
+  },
+  {
+    "id": "startup_6",
+    "name": "CampusCart",
+    "university": "UET",
+    "category": "E-commerce",
+    "stage": "Growth Stage",
+    "description": "Online marketplace for buying and selling textbooks, electronics, and services within university.",
+    "problem": "Students have no centralized platform to buy/sell used items, leading to wastage and overspending.",
+    "solution": "Trusted marketplace exclusively for verified university students with secure payments and delivery.",
+    "fundingGoal": 35000,
+    "fundingRaised": 28000,
+    "logo": "https://via.placeholder.com/100",
+    "team": [
+      { "name": "Sana Iqbal", "role": "Founder & CEO" },
+      { "name": "Arslan Mehmood", "role": "Tech Lead" }
+    ]
+  },
+  {
+    "id": "startup_7",
+    "name": "CodeCollab",
+    "university": "FAST",
+    "category": "EdTech",
+    "stage": "Idea Stage",
+    "description": "Collaborative coding platform for CS students with real-time pair programming and code review.",
+    "problem": "CS students often code in isolation and lack collaborative tools for learning and project work.",
+    "solution": "Real-time collaborative IDE with built-in code review, mentorship matching, and project collaboration.",
+    "fundingGoal": 25000,
+    "fundingRaised": 5000,
+    "logo": "https://via.placeholder.com/100",
+    "team": [
+      { "name": "Talha Baig", "role": "Founder" }
+    ]
+  },
+  {
+    "id": "startup_8",
+    "name": "SmartAttend",
+    "university": "NUST",
+    "category": "EdTech",
+    "stage": "MVP Built",
+    "description": "AI-based attendance tracking system using facial recognition for seamless classroom management.",
+    "problem": "Manual attendance is time-consuming and prone to proxy issues, wasting valuable class time.",
+    "solution": "Automated facial recognition system that marks attendance in seconds with anti-spoofing technology.",
+    "fundingGoal": 45000,
+    "fundingRaised": 30000,
+    "logo": "https://via.placeholder.com/100",
+    "team": [
+      { "name": "Raza Naqvi", "role": "CEO" },
+      { "name": "Kinza Ahmed", "role": "ML Engineer" },
+      { "name": "Daniyal Malik", "role": "Full-Stack Developer" }
+    ]
+  },
+  {
+    "id": "startup_9",
+    "name": "MediConnect",
+    "university": "LUMS",
+    "category": "HealthTech",
+    "stage": "MVP Built",
+    "description": "Platform connecting students with healthcare providers on campus.",
+    "problem": "Students struggle to find and book appointments with campus healthcare services efficiently.",
+    "solution": "Unified platform for booking appointments, accessing medical records, and connecting with campus health services.",
+    "fundingGoal": 55000,
+    "fundingRaised": 42000,
+    "logo": "https://via.placeholder.com/100",
+    "team": [
+      { "name": "Ayesha Malik", "role": "Founder & CEO" },
+      { "name": "Fahad Sheikh", "role": "Product Lead" },
+      { "name": "Zara Khan", "role": "UX Designer" }
+    ]
+  },
+  {
+    "id": "startup_10",
+    "name": "EcoRide",
+    "university": "GIKI",
+    "category": "CleanTech",
+    "stage": "Idea Stage",
+    "description": "Campus carpooling app to reduce carbon footprint.",
+    "problem": "Students drive alone to campus daily, creating traffic congestion and high carbon emissions.",
+    "solution": "Carpooling platform that matches students with similar routes, reducing vehicles and promoting sustainability.",
+    "fundingGoal": 28000,
+    "fundingRaised": 12000,
+    "logo": "https://via.placeholder.com/100",
+    "team": [
+      { "name": "Bilal Hassan", "role": "Founder" },
+      { "name": "Sara Ahmed", "role": "Operations Manager" }
+    ]
+  }
+]
