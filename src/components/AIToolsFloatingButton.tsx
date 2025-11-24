@@ -10,7 +10,18 @@ const AIToolsFloatingButton = () => {
     // Show after 3 seconds
     const timer = setTimeout(() => {
       const dismissed = localStorage.getItem('ai-tools-banner-dismissed');
-      if (!dismissed) {
+      // Check if dismissed more than 24 hours ago (reset after 24h)
+      if (dismissed) {
+        const dismissedTime = parseInt(dismissed);
+        const now = Date.now();
+        const hoursSinceDismissed = (now - dismissedTime) / (1000 * 60 * 60);
+        
+        // Show again if dismissed more than 24 hours ago
+        if (hoursSinceDismissed > 24) {
+          localStorage.removeItem('ai-tools-banner-dismissed');
+          setIsVisible(true);
+        }
+      } else {
         setIsVisible(true);
       }
     }, 3000);
@@ -29,13 +40,14 @@ const AIToolsFloatingButton = () => {
   const handleDismiss = () => {
     setIsVisible(false);
     setIsDismissed(true);
-    localStorage.setItem('ai-tools-banner-dismissed', 'true');
+    // Store timestamp instead of just 'true' to allow reset after 24h
+    localStorage.setItem('ai-tools-banner-dismissed', Date.now().toString());
   };
 
   if (isDismissed || !isVisible) return null;
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 animate-slide-up">
+    <div className="fixed bottom-6 right-6 z-[100] animate-slide-up">
       <div className="relative bg-card border-2 border-primary rounded-xl shadow-2xl p-4 max-w-sm">
         <button
           onClick={handleDismiss}
