@@ -10,11 +10,25 @@ app.use(cors());
 app.use(express.json());
 
 // Google Gemini API Key - Get one for free at https://aistudio.google.com/app/apikey
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY || "AIzaSyBam-_2ByWK7kxLp02ENdKFlu4hRFZETeQ";
+// IMPORTANT: Never hardcode API keys! Always use environment variables.
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+
+if (!GEMINI_API_KEY) {
+  console.error('❌ ERROR: GEMINI_API_KEY environment variable is not set!');
+  console.error('   Please set it in your .env.local file or export it in your terminal.');
+  console.error('   Get your API key from: https://aistudio.google.com/app/apikey');
+  // Don't exit - let it fail gracefully when API is called
+}
 
 app.post('/api/transform', async (req, res) => {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
+  }
+
+  if (!GEMINI_API_KEY) {
+    return res.status(500).json({ 
+      error: "GEMINI_API_KEY is not configured. Please set it in your .env.local file." 
+    });
   }
 
   const { abstract } = req.body;
@@ -186,6 +200,12 @@ Note: This is a template response. For AI-generated content, please configure th
 app.post('/api/funding-calculator', async (req, res) => {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
+  }
+
+  if (!GEMINI_API_KEY) {
+    return res.status(500).json({ 
+      error: "GEMINI_API_KEY is not configured. Please set it in your .env.local file." 
+    });
   }
 
   const { startupIdea, expectedUsers, teamSize } = req.body;
