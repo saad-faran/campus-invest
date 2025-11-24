@@ -36,18 +36,25 @@ export default async function handler(
           {
             parts: [
               {
-                text: `Convert this FYP abstract into a startup concept. Use simple language with specific numbers.
+                text: `Convert this FYP abstract into a startup concept for the Pakistani market. Use simple language with specific numbers.
+
+CRITICAL: Focus on Pakistani market context. Use PKR (Pakistani Rupees) for all pricing and financial figures. Consider local market conditions, typical Pakistani startup funding ranges (PKR 100K-500K for early stage), and realistic pricing for Pakistani consumers.
 
 Include:
-1. One-Line Pitch
-2. Problem (2-3 bullets with numbers)
+1. One-Line Pitch (for Pakistani market)
+2. Problem (2-3 bullets with numbers, relevant to Pakistan)
 3. Solution (2-3 bullets)
-4. Target Market (numbers: customers, market size)
-5. Revenue Model (pricing, projections)
+4. Target Market (numbers: customers, market size in Pakistan - use PKR for market size)
+5. Revenue Model (pricing in PKR, projections in PKR)
 6. MVP Features (3 features)
 7. 3-Month Launch Plan (week-by-week milestones)
 
-Format: Clean text, no markdown. Be concise. Use numbers.
+Format: Clean text, no markdown. Be concise. Use numbers. Always use PKR for currency.
+
+Example pricing context:
+- Pakistani consumers: PKR 500-2,000/month subscriptions are typical
+- Early-stage funding: PKR 100K-500K is realistic
+- Market size: Use PKR (e.g., PKR 10M market, not $10M)
 
 Abstract: ${abstract}`
               }
