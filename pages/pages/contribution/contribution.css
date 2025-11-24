@@ -1,0 +1,681 @@
+/* ========================================
+   VARIABLES
+   ======================================== */
+:root {
+  --primary: #2563EB;
+  --primary-hover: #1D4ED8;
+  --secondary: #7C3AED;
+  --secondary-hover: #6D28D9;
+  --success: #10B981;
+  --background: #F8FAFC;
+  --card-bg: #FFFFFF;
+  --text-dark: #1E293B;
+  --text-light: #475569;
+  --error: #EF4444;
+  --warning: #F59E0B;
+  --border: #E2E8F0;
+}
+
+/* ========================================
+   RESET & BASE STYLES
+   ======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text-dark);
+  background-color: var(--background);
+  line-height: 1.6;
+}
+
+.contribution-page {
+  min-height: 100vh;
+}
+
+/* ========================================
+   HERO BANNER
+   ======================================== */
+.contribution-hero {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  padding: 40px 20px;
+  color: white;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.back-link {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: 16px;
+  transition: color 0.2s;
+}
+
+.back-link:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.contribution-hero h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.category-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ========================================
+   CONTENT SECTION
+   ======================================== */
+.content-section {
+  padding: 40px 20px;
+  background: var(--background);
+}
+
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 0.67fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* ========================================
+   LEFT COLUMN
+   ======================================== */
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Startup Summary Card */
+.summary-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+
+.startup-logo {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 16px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--border);
+}
+
+.startup-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.summary-card h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+}
+
+.startup-category {
+  color: var(--text-light);
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.funding-status {
+  margin: 24px 0;
+  padding: 20px;
+  background: var(--background);
+  border-radius: 12px;
+}
+
+.funding-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+.funding-row:last-child {
+  margin-bottom: 0;
+}
+
+.funding-row span {
+  color: var(--text-light);
+}
+
+.funding-row strong {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.progress-container {
+  margin-top: 20px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background: var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--success);
+  border-radius: 999px;
+  transition: width 0.5s ease;
+}
+
+.progress-fill.animate-progress {
+  animation: progressPulse 0.5s ease;
+}
+
+@keyframes progressPulse {
+  0% {
+    transform: scaleX(0.95);
+  }
+  50% {
+    transform: scaleX(1.02);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.progress-text {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Investment Tiers */
+.tiers-section h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--text-dark);
+}
+
+.tier-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-left: 4px solid;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tier-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.tier-card.supporter {
+  border-left-color: var(--success);
+}
+
+.tier-card.advocate {
+  border-left-color: var(--primary);
+}
+
+.tier-card.champion {
+  border-left-color: var(--secondary);
+}
+
+.tier-card.angel {
+  border-left-color: var(--warning);
+}
+
+.tier-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.tier-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.tier-range {
+  font-size: 14px;
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+.tier-rewards {
+  list-style: none;
+  padding: 0;
+}
+
+.tier-rewards li {
+  padding: 6px 0;
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+/* ========================================
+   RIGHT COLUMN - INVESTMENT FORM
+   ======================================== */
+.right-column {
+  position: relative;
+}
+
+.investment-form-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.investment-form-card.sticky {
+  position: sticky;
+  top: 20px;
+}
+
+.investment-form-card h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--text-dark);
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+label {
+  display: block;
+  color: var(--text-dark);
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.sub-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-light);
+  margin-top: 12px;
+}
+
+.required {
+  color: var(--error);
+}
+
+input[type="number"],
+select {
+  width: 100%;
+  height: 48px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0 16px;
+  font-size: 15px;
+  transition: all 0.2s;
+  background: var(--card-bg);
+  color: var(--text-dark);
+  font-family: inherit;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+input.error,
+select.error {
+  border-color: var(--error);
+}
+
+/* Quick Amount Buttons */
+.quick-amounts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.amount-btn {
+  height: 56px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--text-dark);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.amount-btn:hover {
+  border-color: var(--primary);
+  background: rgba(37, 99, 235, 0.05);
+}
+
+.amount-btn.selected {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+/* Selected Tier Display */
+.selected-tier {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: var(--background);
+  border-radius: 8px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.selected-tier strong {
+  color: var(--text-dark);
+}
+
+#tier-name {
+  color: var(--primary);
+  text-transform: capitalize;
+}
+
+/* Checkbox Group */
+.checkbox-group label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: auto;
+  height: auto;
+  margin-top: 3px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.error-message {
+  display: block;
+  color: var(--error);
+  font-size: 13px;
+  margin-top: 4px;
+  min-height: 18px;
+}
+
+/* Contribute Button */
+.btn-contribute {
+  width: 100%;
+  height: 56px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 8px;
+}
+
+.btn-contribute:hover:not(:disabled) {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-contribute:disabled {
+  background: var(--text-light);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-contribute.loading {
+  position: relative;
+  color: transparent;
+}
+
+.btn-contribute.loading::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  margin-left: -10px;
+  margin-top: -10px;
+  border: 2px solid white;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ========================================
+   MODALS
+   ======================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.modal-content {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 40px 32px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s ease-out;
+}
+
+.modal-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.modal-content h2 {
+  color: var(--text-dark);
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.modal-content p {
+  color: var(--text-light);
+  font-size: 16px;
+  margin-bottom: 32px;
+}
+
+.success-details {
+  background: var(--background);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 24px 0;
+  text-align: left;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-row span {
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+.detail-row strong {
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  font-size: 15px;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-secondary {
+  background: var(--border);
+  color: var(--text-dark);
+}
+
+.btn-secondary:hover {
+  background: #CBD5E1;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 768px) {
+  .content-container {
+    grid-template-columns: 1fr;
+  }
+
+  .investment-form-card.sticky {
+    position: relative;
+    top: 0;
+  }
+
+  .quick-amounts {
+    grid-template-columns: 1fr;
+  }
+
+  .contribution-hero h1 {
+    font-size: 28px;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-section {
+    padding: 24px 16px;
+  }
+
+  .contribution-hero {
+    padding: 32px 16px;
+  }
+
+  .contribution-hero h1 {
+    font-size: 24px;
+  }
+
+  .investment-form-card {
+    padding: 24px 20px;
+  }
+
+  .summary-card {
+    padding: 20px;
+  }
+
+  .tier-card {
+    padding: 16px;
+  }
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

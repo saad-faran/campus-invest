@@ -1,0 +1,522 @@
+/* ========================================
+   VARIABLES
+   ======================================== */
+:root {
+  --primary-blue: #2563EB;
+  --primary-blue-hover: #1D4ED8;
+  --secondary-purple: #7C3AED;
+  --secondary-purple-hover: #6D28D9;
+  --success-green: #10B981;
+  --bg-light: #F8FAFC;
+  --card-bg: #FFFFFF;
+  --text-dark: #1E293B;
+  --text-grey: #475569;
+  --border-grey: #E5E7EB;
+}
+
+/* ========================================
+   RESET & BASE STYLES
+   ======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text-dark);
+  background-color: var(--bg-light);
+  line-height: 1.6;
+}
+
+.startup-detail-page {
+  min-height: 100vh;
+}
+
+/* ========================================
+   HERO BANNER
+   ======================================== */
+.hero-banner {
+  background: linear-gradient(135deg, #2563EB, #7C3AED);
+  padding: 60px 20px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-banner h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #FFFFFF;
+}
+
+.hero-tagline {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+}
+
+/* ========================================
+   CONTENT LAYOUT
+   ======================================== */
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background-color: var(--bg-light);
+}
+
+.two-column-layout {
+  display: grid;
+  grid-template-columns: 1fr 0.43fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* ========================================
+   LEFT COLUMN - INFO CARDS
+   ======================================== */
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.info-card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin-bottom: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+}
+
+.info-card.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.info-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.info-card h2 {
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+
+.info-card p {
+  color: var(--text-grey);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Team Section */
+.team-section {
+  margin-top: 0;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.team-member {
+  text-align: center;
+}
+
+.team-member h4 {
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+
+.team-member p {
+  color: var(--text-grey);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.avatar-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--border-grey);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========================================
+   RIGHT COLUMN - FUNDING CARD
+   ======================================== */
+.right-column {
+  position: relative;
+}
+
+.funding-card {
+  background-color: var(--card-bg);
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.funding-card.sticky {
+  position: sticky;
+  top: 20px;
+}
+
+.funding-card h3 {
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+}
+
+.funding-details {
+  margin-bottom: 20px;
+}
+
+.funding-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-grey);
+}
+
+.funding-row:last-child {
+  border-bottom: none;
+}
+
+.funding-row span {
+  color: var(--text-grey);
+  font-size: 0.95rem;
+}
+
+.funding-row strong {
+  color: var(--text-dark);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.progress-bar-container {
+  background-color: var(--border-grey);
+  height: 12px;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.progress-bar {
+  background-color: var(--success-green);
+  height: 100%;
+  transition: width 0.3s ease;
+  border-radius: 999px;
+}
+
+.progress-text {
+  color: var(--text-grey);
+  font-size: 0.875rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.btn-contribute {
+  background-color: var(--primary-blue);
+  color: #FFFFFF;
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-contribute:hover {
+  background-color: var(--primary-blue-hover);
+  transform: scale(1.02);
+}
+
+.btn-contribute:active {
+  transform: scale(0.98);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 768px) {
+  .hero-banner h1 {
+    font-size: 2rem;
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+  }
+
+  .content-container {
+    padding: 24px 16px;
+  }
+
+  .two-column-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .funding-card.sticky {
+    position: relative;
+    top: 0;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-banner {
+    padding: 40px 16px;
+  }
+
+  .hero-banner h1 {
+    font-size: 1.75rem;
+  }
+
+  .info-card {
+    padding: 20px;
+  }
+
+  .funding-card {
+    padding: 20px;
+  }
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.info-card.fade-in {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* ========================================
+   ERROR MESSAGE
+   ======================================== */
+.error-message {
+  text-align: center;
+  padding: 80px 20px;
+  background: var(--bg-light);
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-message h2 {
+  color: var(--text-dark);
+  margin-bottom: 16px;
+  font-size: 2rem;
+}
+
+.error-message p {
+  color: var(--text-grey);
+  margin-bottom: 24px;
+  font-size: 1.1rem;
+}
+
+.btn-back {
+  display: inline-block;
+  background: var(--primary-blue);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-back:hover {
+  background: var(--primary-blue-hover);
+  transform: scale(1.02);
+}
+
+.btn-back:active {
+  transform: scale(0.98);
+}
+
+/* ========================================
+   META INFO IN FUNDING CARD
+   ======================================== */
+.meta-info {
+  margin: 20px 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-grey);
+}
+
+.meta-info p {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 0.875rem;
+  color: var(--text-dark);
+}
+
+.meta-info p:last-child {
+  margin-bottom: 0;
+}
+
+.meta-info strong {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.meta-info span {
+  color: var(--text-grey);
+}
+
+/* ========================================
+   FADE IN ANIMATION
+   ======================================== */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   AVATAR PLACEHOLDER (for team members)
+   ======================================== */
+.team-member .avatar-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-blue), var(--secondary-purple));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0 auto 12px;
+}
+
+/* ========================================
+   NEW BADGE IN HERO SECTION
+   ======================================== */
+.new-badge-hero {
+  display: inline-block;
+  background: linear-gradient(135deg, #10B981, #059669);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-left: 12px;
+  vertical-align: middle;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+/* ========================================
+   STATUS BANNER
+   ======================================== */
+.status-banner {
+  margin-top: 20px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.status-banner.pending {
+  background: #FEF3C7;
+  color: #92400E;
+  border: 1px solid #FDE68A;
+}
+
+.status-banner.approved {
+  background: #D1FAE5;
+  color: #065F46;
+  border: 1px solid #A7F3D0;
+}
+
+/* ========================================
+   LOADING SPINNER
+   ======================================== */
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 40px 20px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-spinner p {
+  color: white;
+  font-size: 16px;
+  opacity: 0.9;
+}
+

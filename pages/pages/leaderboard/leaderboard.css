@@ -1,0 +1,516 @@
+/* ========================================
+   VARIABLES
+   ======================================== */
+:root {
+  --primary: #2563EB;
+  --primary-hover: #1D4ED8;
+  --secondary: #7C3AED;
+  --secondary-hover: #6D28D9;
+  --success: #10B981;
+  --background: #F8FAFC;
+  --card-bg: #FFFFFF;
+  --text-dark: #1E293B;
+  --text-light: #475569;
+  --gold: #F59E0B;
+  --silver: #94A3B8;
+  --bronze: #CD7F32;
+  --border: #E2E8F0;
+}
+
+/* ========================================
+   RESET & BASE STYLES
+   ======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text-dark);
+  background-color: var(--background);
+  line-height: 1.6;
+}
+
+.leaderboard-page {
+  min-height: 100vh;
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+.leaderboard-hero {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  padding: 60px 20px;
+  text-align: center;
+  color: white;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.leaderboard-hero h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.leaderboard-hero p {
+  font-size: 18px;
+  opacity: 0.95;
+}
+
+/* ========================================
+   TABS SECTION
+   ======================================== */
+.tabs-section {
+  background: var(--card-bg);
+  padding: 24px 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.tabs-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 8px;
+  background: #F1F5F9;
+  border-radius: 12px;
+  padding: 4px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 12px 24px;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  font-family: inherit;
+}
+
+.tab-btn:hover {
+  color: var(--primary);
+}
+
+.tab-btn.active {
+  background: var(--card-bg);
+  color: var(--primary);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+}
+
+/* ========================================
+   CONTENT SECTION
+   ======================================== */
+.content-section {
+  padding: 40px 20px;
+  background: var(--background);
+}
+
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.leaderboard-header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.leaderboard-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+}
+
+.leaderboard-header p {
+  color: var(--text-light);
+  font-size: 16px;
+}
+
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ========================================
+   LEADERBOARD CARDS
+   ======================================== */
+.leaderboard-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  position: relative;
+}
+
+.leaderboard-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Rank Badge */
+.rank-badge {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.rank-badge.gold {
+  background: linear-gradient(135deg, #F59E0B, #FCD34D);
+  color: var(--text-dark);
+}
+
+.rank-badge.silver {
+  background: linear-gradient(135deg, #94A3B8, #CBD5E1);
+  color: var(--text-dark);
+}
+
+.rank-badge.bronze {
+  background: linear-gradient(135deg, #CD7F32, #D4A574);
+  color: white;
+}
+
+.rank-badge.number {
+  background: #F1F5F9;
+  color: var(--text-light);
+  font-size: 20px;
+}
+
+/* Card Content */
+.card-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.card-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.card-info {
+  flex: 1;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+}
+
+.card-subtitle {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+
+.card-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.stat-item strong {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.progress-container {
+  margin-top: 12px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 999px;
+  transition: width 0.5s ease;
+}
+
+.progress-text {
+  font-size: 12px;
+  color: var(--text-light);
+  text-align: right;
+}
+
+.trend-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+.trend-indicator.up {
+  color: var(--success);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.trend-indicator.down {
+  color: var(--error);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.trend-indicator.same {
+  color: var(--text-light);
+  background: rgba(148, 163, 184, 0.1);
+}
+
+/* Startup Card Specific */
+.startup-card {
+  border-left: 4px solid transparent;
+}
+
+.startup-card.rank-1 {
+  border-left-color: var(--gold);
+}
+
+.startup-card.rank-2 {
+  border-left-color: var(--silver);
+}
+
+.startup-card.rank-3 {
+  border-left-color: var(--bronze);
+}
+
+.category-badge {
+  display: inline-block;
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--primary);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.university-tag {
+  display: inline-block;
+  background: var(--background);
+  color: var(--text-light);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+.status-badge.fully-funded {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+}
+
+.status-badge.active {
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--primary);
+}
+
+.status-badge.new {
+  background: rgba(124, 58, 237, 0.1);
+  color: var(--secondary);
+}
+
+.btn-view-details {
+  display: inline-block;
+  padding: 8px 16px;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s;
+  margin-top: 12px;
+}
+
+.btn-view-details:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+/* Investor Card Specific */
+.investor-badges {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.badge-icon {
+  font-size: 20px;
+}
+
+.role-badge {
+  display: inline-block;
+  background: var(--background);
+  color: var(--text-light);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  margin-left: 8px;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-light);
+}
+
+.empty-state-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.empty-state h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 768px) {
+  .leaderboard-hero h1 {
+    font-size: 32px;
+  }
+
+  .leaderboard-hero p {
+    font-size: 16px;
+  }
+
+  .tabs-container {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .tab-btn {
+    width: 100%;
+  }
+
+  .leaderboard-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .card-content {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .card-stats {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .leaderboard-hero {
+    padding: 40px 16px;
+  }
+
+  .leaderboard-hero h1 {
+    font-size: 28px;
+  }
+
+  .content-section {
+    padding: 24px 16px;
+  }
+
+  .leaderboard-card {
+    padding: 20px;
+  }
+
+  .rank-badge {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+  }
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
